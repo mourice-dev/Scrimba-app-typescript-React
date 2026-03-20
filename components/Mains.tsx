@@ -1,31 +1,35 @@
 /** @format */
 
-import { useState } from "react";
-// import type { ReactFormState } from "react-dom/client";
+import React from "react";
 
-export default function Mains() {
-  const [ingredients, setIngredients] = useState<string[]>([]);
+export default function Main() {
+  const [ingredients, setIngredients] = React.useState<string[]>([]);
 
-  const ingredient = ingredients.map((item) => {
-    return <li key={item}>{item}</li>;
-  });
+  const ingredientsListItems = ingredients.map((ingredient) => (
+    <li key={ingredient}>{ingredient}</li>
+  ));
 
-  function submitHandler(event: React.FormEvent<HTMLFormElement>): void {
-    event.preventDefault();
-    const formData = new FormData(event.currentTarget);
-      const newIngredient = formData.get("ingredient");
-      if (typeof newIngredient === "string") {
-          setIngredients((previousIngredients) => [
-            ...previousIngredients,
-            newIngredient,
-          ]);
-      }
-      
+  function addIngredient(formData: FormData): void {
+ 
+    const newIngredient = formData.get("ingredient");
+    if (typeof newIngredient === "string" && newIngredient.trim() !== "") {
+         setIngredients((prevIngredients) => [
+      ...prevIngredients,
+      newIngredient,
+    ]);
+    }
+ 
   }
+
+  /**
+   * Challenge:
+   * Using conditional rendering, only render the new <section> IF
+   * there are ingredients added to the list of ingredients.
+   */
 
   return (
     <main>
-      <form className='add-ingredient-form' onSubmit={submitHandler}>
+      <form action={addIngredient} className='add-ingredient-form'>
         <input
           type='text'
           placeholder='e.g. oregano'
@@ -34,7 +38,19 @@ export default function Mains() {
         />
         <button>Add ingredient</button>
       </form>
-      <ul>{ingredient}</ul>
+     {ingredients.length > 0 && ( <section>
+        <h2>Ingredients on hand:</h2>
+        <ul className='ingredients-list' aria-live='polite'>
+          {ingredientsListItems}
+        </ul>
+        <div className='get-recipe-container'>
+          <div>
+            <h3>Ready for a recipe?</h3>
+            <p>Generate a recipe from your list of ingredients.</p>
+          </div>
+          <button>Get a recipe</button>
+        </div>
+      </section>)}
     </main>
   );
 }
