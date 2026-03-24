@@ -30,7 +30,7 @@ export default function User() {
           alt='User profile picture of John Doe'
         />
         <div className='info'>
-          <Star isFilled={contact.isFavorite} />
+          <Star isFilled={contact.isFavorite} onClick={toggleFavorite} />
           <h2 className='name'>
             {contact.firstName} {contact.lastName}
           </h2>
