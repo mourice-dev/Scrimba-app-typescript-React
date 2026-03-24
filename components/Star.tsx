@@ -2,17 +2,17 @@
 import starFilled from "../src/assets/images/star-filled.png";
 import starEmpty from "../src/assets/images/star-empty.png";
 
-type StarProps = {
-  isFilled: boolean;
-  onClick: () => void;
-};
+// type StarProps = {
+//   isFilled: boolean;
+//   onClick: () => void;
+// };
 
-export default function Star(props: StarProps) {
+export default function Star(props) {
   const starIcon = props.isFilled ? starFilled : starEmpty;
 
   return (
     <button
-      onClick={props.onClick}
+      onClick={props.HandleClick}
       aria-pressed={props.isFilled ? "true" : "false"}
       aria-label={props.isFilled ? "Remove from favorites" : "Add to favorites"}
       className='favorite-button'>
