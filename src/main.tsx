@@ -6,13 +6,13 @@ import "./index.css";
 // import Header from "../components/Header";
 // import List from "../components/List";
 // import Mains from "../components/Mains";
-// import User from "../components/User";
+import User from "../components/User";
 // import Forms from "../components/Forms";
-import Counting from "../components/Counting";
+// import Counting from "../components/Counting";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
 
-    < Counting />
+    < User />
   </StrictMode>,
 );

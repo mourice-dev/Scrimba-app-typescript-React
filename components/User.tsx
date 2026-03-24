@@ -1,8 +1,7 @@
 /** @format */
 import React from "react";
 import avatar from "../src/assets/images/user.png";
-import starFilled from "../src/assets/images/star-filled.png";
-import starEmpty from "../src/assets/images/star-empty.png";
+
 import Star from "./Star";
 export default function User() {
   const [contact, setContact] = React.useState({
@@ -13,7 +12,7 @@ export default function User() {
     isFavorite: false,
   });
 
-  const starIcon = contact.isFavorite ? starFilled : starEmpty;
+
 
   function toggleFavorite(): void {
     setContact((prevContact) => ({
@@ -31,7 +30,7 @@ export default function User() {
           alt='User profile picture of John Doe'
         />
         <div className='info'>
-          <Star sc={isFilled} />
+          <Star isFilled={contact.isFavorite} />
           <h2 className='name'>
             {contact.firstName} {contact.lastName}
           </h2>
