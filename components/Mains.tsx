@@ -15,12 +15,7 @@ export default function Main() {
       setIngredients((prevIngredients) => [...prevIngredients, newIngredient]);
     }
   }
-  /**
-   * Challenge:
-   * Only display the div.get-recipe-container if the ingredients list
-   * has more than 3 items in it. (Fewer than that and it might not
-   * give gr eat results from the chef 🤖👩‍🍳)
-   */
+
  const [recipeShown, setRecipeShown] = React.useState(false);
 
  function getShown() {

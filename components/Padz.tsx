@@ -1,25 +1,19 @@
 /** @format */
 
-import React from "react";
-
 type PadzProps = {
   id: number;
   color: string;
   on: boolean;
+  toggle: (id: number) => void;
 };
 
 export default function Padz(props: PadzProps) {
-  const [onButton, setOnButton] = React.useState(props.on);
-
-  function toggleTrack() {
-    setOnButton((previousOn) => !previousOn);
-  }
   return (
     <button
-      onClick={toggleTrack}
+      onClick={() => props.toggle(props.id)}
       title={`Pad ${props.id}`}
       aria-label={`Pad ${props.id}`}
       style={{ backgroundColor: props.color }}
-      className={onButton ? "on" : "off"}></button>
+      className={props.on ? "on" : "off"}></button>
   );
 }
