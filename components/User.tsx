@@ -3,7 +3,7 @@ import React from "react";
 import avatar from "../src/assets/images/user.png";
 import starFilled from "../src/assets/images/star-filled.png";
 import starEmpty from "../src/assets/images/star-empty.png";
-import Star from "./Star"
+import Star from "./Star";
 export default function User() {
   const [contact, setContact] = React.useState({
     firstName: "John",
@@ -31,7 +31,7 @@ export default function User() {
           alt='User profile picture of John Doe'
         />
         <div className='info'>
-< Star />
+          <Star sc={isFilled} />
           <h2 className='name'>
             {contact.firstName} {contact.lastName}
           </h2>

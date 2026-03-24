@@ -7,7 +7,7 @@ export default function Star(props) {
         }
         className='favorite-button'>
         <img
-          src={starIcon}
+          src={props.starIcon}
           alt={contact.isFavorite ? "filled star icon" : "empty star icon"}
           className='favorite'
         />
