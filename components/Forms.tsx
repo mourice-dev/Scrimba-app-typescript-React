@@ -6,7 +6,7 @@
 export default function Forms() {
 
 
-  function signUp(formData) {
+  function signUp(formData: FormData) {
     const email = formData.get("email");
     const password = formData.get("password");
     const employmentStatus = formData.get("employmentStatus");
