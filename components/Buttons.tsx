@@ -2,23 +2,20 @@
 
 import React from "react";
 import { Pads } from "../src/assets/Datas/Pads";
+import Padz from "./Padz"
 
 export default function Buttons() {
-  const [pads, setPads] = React.useState(Pads);
+  const [pads] = React.useState(Pads);
 
-  const buttonElements = pads.map((pad) => (
-    <button
-      style={{ backgroundColor: pad.color }}
-      key={pad.id}
-      title={`Pad ${pad.id}`}
-      aria-label={`Pad ${pad.id}`}
-    ></button>
-  ));
+  const buttonElements = pads.map((pad) => {
+    return <Padz key={pad.id} color={pad.color} id={pad.id} on={pad.on} />;
+  });
 
-    return (
-      
+  return (
     <main>
-      <div className='pad-container'>{buttonElements}</div>
+      <div className='pad-container'>
+        {buttonElements}
+      </div>
     </main>
   );
 }

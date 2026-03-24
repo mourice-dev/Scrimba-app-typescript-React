@@ -395,3 +395,10 @@ button {
     cursor: pointer;
     
 }
+button.on {
+    opacity: 1;
+}
+
+button.off {
+    opacity: 0.1;
+}
