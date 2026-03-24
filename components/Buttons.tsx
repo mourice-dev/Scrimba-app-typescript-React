@@ -19,7 +19,6 @@ export default function Buttons() {
     return (
       <Padz
         key={pad.id}
-        color={pad.color}
         id={pad.id}
         on={pad.on}
         toggle={toggle}
