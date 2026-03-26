@@ -1,7 +1,7 @@
 /** @format */
 
 import React from "react";
-import Recipe from "./Recipe";
+import ClaudeRecipe from "./Recipe";
 import IngredientsList from "./IngredientsList";
 
 export default function Main() {
@@ -46,7 +46,6 @@ export default function Main() {
 
   function getShown() {
     setRecipeShown((previousRecipe) => !previousRecipe);
-    console.log(recipeShown);
   }
   return (
     <main>
@@ -60,23 +59,13 @@ export default function Main() {
         <button>Add ingredient</button>
       </form>
       {ingredients.length > 0 && (
-        <section>
-          <h2>Ingredients on hand:</h2>
-
-          <IngredientsList ingredientsListItems={ingredientsListItems} />
-
-          {ingredientsListItems.length > 3 && (
-            <div className='get-recipe-container'>
-              <div>
-                <h3>Ready for a recipe?</h3>
-                <p>Generate a recipe from your list of ingredients.</p>
-              </div>
-              <button onClick={getShown}>Get a recipe</button>
-            </div>
-          )}
-        </section>
+        <IngredientsList
+          ingredientsListItems={ingredientsListItems}
+          shownFun={getShown}
+          ingredients={ingredients}
+        />
       )}
-      {recipeShown && <Recipe />}
+      {recipeShown && <ClaudeRecipe />}
     </main>
   );
 }
