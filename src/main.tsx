@@ -10,11 +10,12 @@ import "./index.css";
 // import Forms from "../components/Forms";
 // import Counting from "../components/Counting";
 // import Buttons from "../components/Buttons";
-import SideEffects from "../components/UseEffects";
+// import SideEffects from "../components/UseEffects";
+import WindowTracker from "../components/WindowTracker";
+
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-
-    <SideEffects />
+    <WindowTracker />
   </StrictMode>,
 );
